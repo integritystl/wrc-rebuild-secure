@@ -1,0 +1,29 @@
+
+#tabButtonBox ul{margin:0; padding:0; list-style-type:none;}
+#tabButtonBox ul li{ list-style-type:none; float:left; border:1px solid #CCCCCC; font-weight:bold; text-align:center; padding:5px; margin:3px auto;cursor:pointer;  }
+#tabButtonBox ul li.selected{ background:#21759B; color:#FFFFFF}
+
+.membersListInTab ul{color:#bbbbbb; padding-left:50px; text-decoration:none; list-style-type:disc;}
+.membersListInTab ul{color:#bbbbbb; text-decoration:none;}
+
+input[type=checkbox], input[type=radio]
+{
+height:13px; width:12px;
+}
+input[type=radio]{-webkit-appearance:radio}
+input[type=radio]:checked:before{ width:6px; height:6px; margin:4px;}
+input[type=checkbox]:checked:before { margin:-9px -7px;}
+
+#filelist{background-color: #D8FCFC;color:#036;padding:5px;margin:10px 0;font-weight:bold;display:none;}
+.uploaded_file{background-color:#D7F7BF  !important;color:green !important;}
+
+
+.select-wrapper .caret {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    z-index: 0;
+    fill: rgba(0,0,0,0.87);
+}

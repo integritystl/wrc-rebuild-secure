@@ -1,0 +1,36 @@
+/*!
+Theme Name: WRC Group Secure Theme
+Author: Integrity
+Author URI: http://integritystl.com/
+Description: Theme for the WRC Secure WP Website. Build from the underscores framework
+Version: 1.0.8
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: wrcgroup-secure
+Tags:
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+wrcgroup-secure is based on Underscores http://underscores.me/, (C) 2012-2016 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
+*/
+
+/*--------------------------------------------------------------
+# Normalize
+--------------------------------------------------------------*/
+@import "normalize";
+
+/*--------------------------------------------------------------
+# Grid / Mixin Libraries / Base Variables
+--------------------------------------------------------------*/
+@import "bourbon";
+@import "neat";
+@import "base/base";
+
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,400i,700,700i|Roboto+Slab:300,700|Roboto:300,300i,400,400i,500,700,700i');
+@import "libraries/font-awesome/font-awesome";
+@import "wrcgroup-secure/wrcgroup-secure";

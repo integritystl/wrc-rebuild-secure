@@ -1,0 +1,17 @@
+.section_navigation_menu {
+  list-style: none;
+  padding: 0px;
+  margin: 10px 0px 20px 0px;
+  @include clearfix();
+
+  li {
+    display: block;
+    float: left;
+    a {
+      padding: 10px 20px;
+      text-decoration: none;
+      border: 1px solid black;
+      display: block;
+    }
+  }
+}

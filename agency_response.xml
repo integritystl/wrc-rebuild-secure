@@ -1,0 +1,85 @@
+<response>
+<errors>0</errors>
+<code>123</code>
+<title>Integrity Test Agency</title>
+<address_1>123 Test Lane</address_1>
+<city>St. Louis</city>
+<state>MO</state>
+<zip>33333</zip>
+<phone>555-555-5555</phone>
+<website>https://integritystl.com</website>
+<users>
+<user>
+<user_type>1</user_type>
+<first_name>Annie</first_name>
+<last_name>Mccance</last_name>
+<address>None Set</address>
+<city>Pardeeville</city>
+<state>WI</state>
+<zip>53954</zip>
+<phone>(555) 555-5555</phone>
+<email>Apples@saucemail.com</email>
+<states_allowed/>
+<user_permission>
+<LOB name="CA"/>
+<LOB name="FT"/>
+<LOB name="Liability"/>
+<LOB name="PA"/>
+<LOB name="UM"/>
+</user_permission>
+<agency_code>123</agency_code>
+<agency_name agency_code="123">Integrity Test Agency</agency_name>
+</user>
+<user>
+<user_type>1</user_type>
+<first_name>New</first_name>
+<last_name>Account</last_name>
+<address>None Set</address>
+<city>Pardeeville</city>
+<state>WI</state>
+<zip>53954</zip>
+<phone>(555) 555-5555</phone>
+<email>test@testingmail.com</email>
+<states_allowed/>
+<user_permission>
+<LOB name="CA"/>
+<LOB name="FT"/>
+<LOB name="Liability"/>
+<LOB name="PA"/>
+<LOB name="UM"/>
+</user_permission>
+<agency_code>123</agency_code>
+<agency_name agency_code="123">Integrity Test Agency</agency_name>
+</user>
+<user>
+<user_type>1</user_type>
+<first_name>Test</first_name>
+<last_name>Mutual</last_name>
+<address>fasdfadf</address>
+<city>afsdfadf</city>
+<state>AL</state>
+<zip>55555</zip>
+<phone>5555555555</phone>
+<email>test@mutal.com</email>
+<states_allowed/>
+<user_permission>
+<LOB name="CA"/>
+<LOB name="FT"/>
+<LOB name="Liability"/>
+<LOB name="PA"/>
+<LOB name="UM"/>
+</user_permission>
+<is_manager>1</is_manager>
+<is_principal>1</is_principal>
+<seapass_endorsement>1</seapass_endorsement>
+<drp_agreement>1</drp_agreement>
+<view_inquiry_only>1</view_inquiry_only>
+<agencies_codes>
+<agency_code>123</agency_code>
+<agency_code>123</agency_code>
+</agencies_codes>
+<agency_name agency_code="123">Integrity Test Agency</agency_name>
+<agency_name agency_code="123">Integrity Test Agency</agency_name>
+</user>
+</users>
+</response>

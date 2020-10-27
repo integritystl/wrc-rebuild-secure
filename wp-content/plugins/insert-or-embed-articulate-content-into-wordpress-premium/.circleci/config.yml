@@ -1,0 +1,63 @@
+version: 2
+jobs:
+  build:
+    machine: true
+    steps:
+    - checkout
+    - run:
+        name: Install node@v8.11.3
+        command: |
+          export NVM_DIR="/opt/circleci/.nvm"
+          [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+          nvm install v8.11.3
+          nvm alias default v8.11.3
+    - run:
+        name: Install package
+        command: |
+          cd ./gutenberg
+          export NVM_DIR="/opt/circleci/.nvm"
+          [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+          npm version
+          npm install webpack --save-dev
+          npm install nyc
+          npm run build
+          rm -rf node_modules
+    - run:
+        name: Setup compression
+        command: |
+          zip -r insert-or-embed-articulate-content-into-wordpress-premium.zip * .well-known
+          mkdir /tmp/artifacts
+          mv insert-or-embed-articulate-content-into-wordpress-premium.zip /tmp/artifacts/
+    - persist_to_workspace:
+        root: /tmp/artifacts/
+        paths:
+          - ./
+    - store_artifacts:
+        path: /tmp/artifacts/
+
+  publish-github-release:
+    machine: true
+    steps:
+      - attach_workspace:
+          at: /tmp/artifacts/
+      - run:
+          name: "Publish Release on GitHub"
+          command: |
+            go get github.com/tcnksm/ghr
+            VERSION=5.88
+            ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${VERSION} /tmp/artifacts/
+      
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      - build:
+          filters:
+            tags:
+              only: /^\d+\.\d+\.\d+$/
+      - publish-github-release:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master

@@ -1,0 +1,41 @@
+.acf-field.acf-field-user-login-attempt-count.admin_max_login_alert .acf-input-prepend {
+    color: red;
+    display: block;
+}
+
+.acf-field.admin_max_login_alert input {
+    color: red;
+}
+
+.acf-field.acf-field-user-login-attempt-count .acf-input-prepend {
+    display: none;
+}
+
+.acf-field select[multiple] {
+  min-height: 150px;
+}
+
+.admin-form-row {
+  margin-bottom: 20px;
+}
+
+.admin-form-row legend {
+  margin-bottom: 5px;
+  font-weight: 600;
+  padding-left: 0;
+}
+
+.admin-form-row label {
+  margin-right: 20px;
+  line-height: 1.5;
+}
+
+.admin-form-row #agencies {
+  min-width: 400px;
+  min-height: 100px;
+}
+
+#document_categorydiv #document_category-pop,
+#document_categorydiv #document_category-all{
+  min-height: 500px;
+}

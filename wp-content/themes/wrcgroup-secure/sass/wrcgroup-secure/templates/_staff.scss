@@ -1,0 +1,146 @@
+.staff-container {
+    padding: 50px 10px 30px 60px;
+    width: 100%;
+    @include media($medium-screen) {
+      padding: 20px;
+    }
+    .entry-header {
+      margin-bottom: 50px;
+      h1 {
+        margin-bottom: 30px;
+      }
+    }
+}
+
+.division-container{
+
+   &:last-child {
+     margin-bottom: 0;
+   }
+
+  @include media($medium-screen) {
+    margin-top: 40px;
+  }
+  .division-staff-container {
+      box-sizing: border-box;
+      width: auto;
+      display: flex;
+      align-items: flex-start;
+      position: relative;
+      flex-flow: row wrap;
+      justify-content:flex-start;
+      padding-top: 10px;
+
+      @include media($medium-screen) {
+
+      }
+
+      @media (max-width: 500px) {
+        flex-flow: column;
+      }
+
+      .staff-member{
+           box-sizing: border-box;
+          margin: 0px 30px 50px 0;
+
+        @media (max-width: 500px) {
+          margin: 10px 0px 20px 0;
+
+          &:first-child {
+            margin-top: 0;
+          }
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+
+        //hard to fit readible staff entries 2 in a row smaller than 1200 with the sidebar there
+        @include media($large-screen) {
+          flex: 0 0 28%;
+          &:nth-child(3n) {
+            margin-right: 0;
+          }
+        }
+
+        @include media($medium-screen) {
+            flex: 0 0 31%;
+            margin-right: 20px;
+            &:nth-child(3n) {
+              margin-right: 0;
+            }
+        }
+
+        @media (max-width: 700px) {
+          flex: 0 0 46%;
+          &:nth-child(2n) {
+            margin-right: 0;
+          }
+          &:nth-child(3n) {
+            margin-right: 20px;
+          }
+        }
+
+
+        @media (max-width: 500px) {
+          flex: 0 0 100%;
+          width: 100%;
+          margin-right: 0;
+        }
+
+        .staff-image{
+          max-width: 250px;
+          min-height: 325px;
+          flex: 0 0 100%;
+          overflow: hidden;
+          @media (max-width: 500px) {
+          max-width: 100%;
+          }
+
+          img{
+            max-width: 100%;
+            min-width: 100%;
+            height: auto;
+          }
+        }
+
+        .staff-info{
+          flex-basis: 100%;
+          width: 100%;
+          font-size: 16px;
+          padding: 20px 0 0 0;
+          max-width: 275px;
+          flex: 1 1 auto;
+          @media (max-width: 500px) {
+            max-width: 100%;
+          }
+
+          h3 {
+            margin-bottom: 5px;
+          }
+
+          .staff-title{
+            margin-bottom: 20px;
+          }
+
+          p {
+            margin-bottom: 5px;
+            font-size: 15px;
+          }
+
+          .info-label{
+            font-weight: 600;
+            padding-right: 5px;
+            color: #444;
+          }
+
+          .info-email {
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            width: 95%;
+            overflow: hidden;
+          }
+        }
+      }
+  }
+}

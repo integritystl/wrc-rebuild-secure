@@ -1,0 +1,27 @@
+<response>
+<errors>0</errors>
+<user_type>1</user_type>
+<first_name>Jamal</first_name>
+<last_name>McLaughlin</last_name>
+<address/>
+<city>test</city>
+<state>MO</state>
+<zip>33333</zip>
+<phone>(555) 555-5555</phone>
+<email>jamal@integritystl.com</email>
+<states_allowed>AR,IL,IA,MO,SD,WI</states_allowed>
+<user_permission>
+<LOB name="CA">AR,IL,IA,MO,SD,WI</LOB>
+<LOB name="FT">AR,IL,IA,MO,SD,WI</LOB>
+<LOB name="Liability">AR,IL,IA,MO,SD,WI</LOB>
+<LOB name="PA">AR,IL,IA,MO,SD,WI</LOB>
+<LOB name="UM">AR,IL,IA,MO,SD,WI</LOB>
+</user_permission>
+<is_manager>1</is_manager>
+<is_principal>1</is_principal>
+<seapass_endorsement>1</seapass_endorsement>
+<drp_agreement>1</drp_agreement>
+<view_inquiry_only>1</view_inquiry_only>
+<agency_code>123</agency_code>
+<agency_name agency_code="123">Integrity Test Agency</agency_name>
+</response>

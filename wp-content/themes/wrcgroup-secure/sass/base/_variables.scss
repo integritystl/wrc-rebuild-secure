@@ -1,0 +1,51 @@
+$fa-font-path: 'fonts';
+$site-max-width: 1240px;
+
+$mobile: 400px;
+$medium: 950px;
+$large: 1200px;
+
+$mobile-screen: new-breakpoint(max-width $mobile 12);
+$medium-screen: new-breakpoint(max-width $medium 12);
+$medium-screen-up: new-breakpoint(min-width $medium 12);
+$large-screen: new-breakpoint(min-width $large 12);
+
+$font-family-base: 'Roboto', sans-serif;
+$font-family-slab: 'Roboto Slab', serif;
+$font-family-cond: 'Roboto Condensed', sans-serif;
+$font-size-base: 18px;
+
+
+$gray-light: #f6f6f6;
+$gray-medium: #aeaeae;
+$gray-dark: #555555;
+$red-dark: #7a2533;
+
+$text-color: $gray-dark;
+$link-color: $red-dark;
+
+$brand-primary: #8b2131;
+$brand-transparent: rgba($brand-primary, 0.8);
+$brand-primary-bg: #f3efe9;
+
+$border-color: #ebebeb;
+$error-color: #c50101;
+
+$navbar-default-color: white;
+$navbar-default-bg: transparent;
+$navbar-default-border: darken($gray-light, 5%);
+
+$well-bg: #ebebeb;
+$well-border: #ebebeb;
+
+$btn-primary-color: #fff !default;
+$btn-primary-bg: $brand-primary;
+$btn-primary-border: $brand-primary;
+
+$pagination-color: $red-dark;
+$pagination-border: #ebebeb;
+$pagination-active-color: $link-color;
+$pagination-active-bg: #fff;
+$pagination-active-border: $pagination-border;
+
+$dl-horizontal-offset: 110px;
