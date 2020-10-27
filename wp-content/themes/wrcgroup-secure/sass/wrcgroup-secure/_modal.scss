@@ -1,0 +1,223 @@
+/* Parsley.js base for validation styles */
+input.parsley-success,
+select.parsley-success,
+textarea.parsley-success {
+  color: #468847;
+  background-color: #DFF0D8;
+  border: 1px solid #D6E9C6;
+}
+
+input.parsley-error,
+select.parsley-error,
+textarea.parsley-error {
+  color: #B94A48;
+  background-color: #F2DEDE;
+  border: 1px solid #EED3D7;
+}
+
+.parsley-errors-list {
+  &:empty{
+    display: none;
+  }
+
+  margin: 30px 0 10px;
+  padding: 0;
+  list-style-type: none;
+  opacity: 0;
+  color: #B94A48;
+
+  transition: all .3s ease-in;
+  -o-transition: all .3s ease-in;
+  -moz-transition: all .3s ease-in;
+  -webkit-transition: all .3s ease-in;
+}
+
+.parsley-errors-list.filled {
+  opacity: 1;
+}
+
+.parsley-error + .btn-primary {
+  opacity: 0.6;
+  cursor: not-allowed;
+  border: none;
+}
+
+.parsley-error + .btn-primary:hover {
+    border-color: transparent;
+    background-color: #8b2131;
+}
+
+.modal__error .parsley-policyTypeCheck{
+  display: none;
+}
+
+
+/* Modal */
+.modal .modal-fade-screen {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  opacity: 0;
+  padding-top: 0.6em;
+  text-align: left;
+  transition: opacity 0.25s ease;
+  visibility: hidden;
+  z-index: 99999999999;
+  overflow: auto;
+}
+
+  @media screen and (min-width: 62.5em) {
+    .modal .modal-fade-screen {
+      padding-top: 10em;
+    }
+  }
+
+.modal .modal__close {
+  cursor: pointer;
+  float: right;
+  padding: 0 10px;
+  font-size: 24px;
+}
+
+.modal .modal__inner {
+  background: #fff;
+  margin: auto;
+  margin-top: 0;
+  margin-bottom: 0.6em;
+  //max-height: 95%;
+  overflow: auto;
+  padding: 2em;
+  position: relative;
+  transition: opacity 0.25s ease;
+  width: 85%;
+  max-width: 750px;
+  top: 20px;
+
+  @media (max-width: 650px) {
+    padding: 20px;
+  }
+}
+
+// @media screen and (min-width: 41em) {
+//   .modal .modal__inner {
+//     //max-height: 100%;
+//     max-width: 750px;
+//
+//   }
+// }
+@media screen and (min-width: 62.5em) {
+  .modal .modal__inner {
+    //max-height: 100%;
+    top: -100px;
+  }
+}
+
+.modal .modal__inner .modal__img  {
+  display: block;
+  margin: 10px auto;
+  max-width: 100%;
+}
+
+.modal .modal__inner .modal__half {
+  display: inline-block;
+  max-width: 50%;
+  padding: 10px;
+  text-align: center;
+}
+
+.modal .modal__inner .modal__half img {
+  max-width: 100%;
+}
+
+.modal .modal__img-group {
+  margin: 60px auto 0;
+}
+
+@media screen and (min-width: 1000px) {
+  .modal .modal__inner .modal__img {
+    float: left;
+    display: inline-block;
+    margin: -20px 20px 0 0;
+    width: 48%;
+  }
+
+  .modal .modal__inner .modal__img:last-of-type {
+    float: right;
+    margin: -35px 0 0px;
+  }
+}
+
+.modal__form {
+  display: block;
+  margin: 30px auto;
+}
+
+@media screen and (min-width: 41em) {
+  .modal__form {
+    width: 100%;
+  }
+}
+
+
+.modal__form input {
+
+}
+
+.modal__form input[type="text"] {
+  width: calc(100% - 100px);
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  height: 50px;
+    @media (max-width: 650px) {
+      width: 100%;
+    }
+}
+
+
+.modal__form input[type="submit"] {
+  margin-left: 10px;
+  position:relative;
+  top: 1px;
+  @media (max-width: 650px) {
+    width: 100%;
+    margin: 10px 0 0;
+  }
+}
+
+.modal__form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.modal__error {
+  text-align: center;
+}
+
+.modal-open {
+  overflow: hidden;
+  position: fixed;
+}
+
+.modal-open .modal-fade-screen {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* For the URL we're grabbing for our JS */
+#bridge__url {
+  cursor: default;
+}
+
+.policy_help_text, .bill_pay_help_text {
+  display: none;
+}
+
+.policy-modal .policy_help_text {
+  display: block;
+}
+.bill-pay-modal .bill_pay_help_text {
+  display: block;
+}

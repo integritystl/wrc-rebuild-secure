@@ -1,0 +1,231 @@
+//mimic news structure
+.learning-library-lising-container{
+    // display: -webkit-box;
+    // display: -moz-box;
+    display: flex;
+    max-width: 950px;
+    width: calc(100% - 325px);
+    padding: 0 60px;
+    @include media($medium-screen) {
+          width: 100%;
+          padding:0 20px;
+    }
+}
+
+.page-template-learning-library-list-template {
+
+    .page_container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+
+.page-template-learning-library-list-template {
+    .left_section_navigation_container {
+        width: 325px;
+    }
+}
+
+
+//Special styles for Learning Library
+
+.learning-library-template-default,
+.page-template-learning-library-list-template{
+	.news-list {
+		display: flex;
+		flex-flow: column wrap;
+	}
+	h2{
+		text-transform: capitalize;
+	}
+	.news-links{
+		border-top:none;
+		display: inline-block;
+		margin-right: 1rem;
+	}
+	.next-post{
+		margin:1.5em auto;
+		padding-top: 0;
+		& a{
+			&:before{
+				content: none;
+			}
+			&:after{
+				content:'\f0da';
+				font-family: 'FontAwesome' ;
+				padding-left:5px;
+			}
+		}
+	}
+	.learning-library{
+		.post-meta{
+			.categories{
+				margin-left:0;
+				color:$red-dark;
+				text-transform: uppercase;
+				&:before{
+					content:'|';
+					padding:0 .2em;
+					color:$gray-dark;
+				}
+				& a{
+					border-left: none;
+				}
+			}
+		}
+		.learning-library-video{
+			display: flex;
+			flex-flow: row nowrap;
+			justify-content: flex-start;
+			margin: 2em 0;
+
+			.simplefavorite-button.preset {
+				margin: -.4rem 0 0 2rem;
+			}
+		}
+		/* Override Favorte Button Defaults place next to Launch Button */
+		
+
+
+		/*This makes tags not look so close*/
+		.post-meta .single-learning-library.tags a{
+			display: inline-flex;
+			padding-right:5px;
+			&:first-of-type{
+				padding-left:5px;
+			}
+			&:after{
+				content:',';
+			}
+			&:last-of-type{
+				&:after{
+					display:none;
+				}
+			}
+		}
+		
+	}
+	.related-videos{
+		display: block;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: flex-start;
+		flex-wrap: wrap;
+		margin: 2em auto;
+      	.related-video-single{
+			display: flex;
+      		padding:1em 0;
+      		border-top:1px solid;
+			//width: 50%;
+
+			.related-thumbnail {
+				margin-right: 1rem;
+			}
+      		&:first-of-type{
+      			padding-left:0;
+      			border-top:none;
+      		}
+      		&:last-of-type{
+      			padding-right:0;
+      		}
+      		a{
+      			text-decoration: none;
+      		}
+      		h5{
+      			text-transform: capitalize;
+    			color: $red-dark;
+      		} 
+      		p{
+      			font-size:.8em;
+      		}
+      		.post-meta{
+      			padding: 0;
+      			margin: 0;
+      		}
+      		.next-post{
+      			margin:0;
+      			padding:0;
+      			a{
+      				padding:0;
+      				margin:0;
+      			}
+      		}
+
+      	}
+      	@include media($medium-screen-up) {
+          padding: 2em 0;
+          margin: 1em auto;
+          display: flex;
+          .related-video-single{
+          	//flex: 1 1 0;
+          	padding: 1em;
+          	border-top:none;
+		    width: 50%;
+          }
+      	}
+	}
+}
+
+/*List page specific*/
+.page-template-learning-library-list-template,
+.next-post{
+	.news-links a{
+		&:before{
+			content:'';
+		}
+		&:after{
+			content:'\f0da';
+			font-family: 'FontAwesome' ;
+			padding-left:5px;
+		}
+	}
+	.show-new {
+		position: relative;
+
+		&:before {
+			background-color: $brand-primary;
+			color: #fff;
+			content: 'NEW';
+			padding: .5rem 0;
+			position: absolute;
+			text-align: center;
+			transform: rotate(-45deg) translate(-33%,-176%);
+			width: 300px;
+			z-index: 9999;
+		}
+	}
+	.featured-image-container img{
+		width: 100%;
+	}
+}
+.page-template-learning-library-list-template{
+	.no-featured-img{
+		z-index: 0;
+	}
+}
+
+//Feedback Modal Styles 
+.feedback-open {
+	opacity: 1 !important;
+	visibility: visible !important;
+}
+.ll-feedback-btn {
+	cursor: pointer;
+	margin: 0 0 0 1rem;
+}
+
+body img.gform_ajax_spinner {
+	display: none !important;
+   }
+.gf_hidden {
+	display: none;
+}
+
+
+//Intro Area -- Remove this when that section is removed from the learning-library-list-template.php
+.ll-intro-container {
+	background-color: #f6f6f6;
+	padding: 1rem;
+	margin-bottom: 30px;
+}

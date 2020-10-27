@@ -1,0 +1,87 @@
+//sticky footer solution for specific templates
+body,
+html {
+  height: 100%;
+}
+// body.error404,
+// body.page-template-default,
+// body.page-template-page-my-account,
+// body.page-template-page-login,
+// body.search-no-results {
+body {
+  #page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    .top-menu {
+      flex: 0 0 auto;
+    }
+    .site-top-menu-container {
+      flex: 0 0 auto;
+    }
+    .site-content {
+      display: flex;
+      min-height: 70vh;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .site-footer {
+      flex: 0 0 auto;
+    }
+  }
+}
+
+body.page-template-page-login,
+body.page-template-page-password-reset-request,
+body.page-template-page-password-reset-form {
+  #page {
+    //the login style pages are shorter and needs a smaller defined container height + adjustments for less content
+    min-height: 90vh;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+}
+
+body.page-template-page-password-reset-request,
+body.page-template-page-password-reset-form {
+  #page {
+    .login_left_column {
+      padding-left: 0;
+    }
+  }
+}
+
+.page_content_container {
+  display: flex;
+}
+
+.page_content_wrapper {
+  display: flex;
+  .entry-header {
+    margin-bottom: 30px;
+  }
+  .document_template_right_section {
+    .entry-header {
+      margin-bottom: 50px;
+      @include media($medium-screen) {
+      margin-bottom: 60px;
+      }
+    }
+  }
+}
+/*Makes any posts that are full width happy!*/
+.full-width{
+  padding: 1.5em;
+  max-width: $site-max-width;
+  margin: auto;
+}
+
+ul {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+// Gravity Forms Progress Bar title hide
+.gf_progressbar_title {
+  display: none;
+}

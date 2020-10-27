@@ -1,0 +1,186 @@
+//Tied to Event Espresso plugin
+.events-list {
+  h1 {
+    margin-bottom: 40px;
+    @include media($medium-screen) {
+      margin-bottom: 20px;
+    }
+  }
+}
+//Wrapper
+.events-page {
+  @include outer-container();
+  margin-bottom: 20px;
+  .button-primary,
+  .ticket-selector-submit-btn {
+    @extend .btn-primary;
+  }
+  .content-area {
+    max-width: 850px;
+    margin: 60px auto 0;
+    @include media($medium-screen) {
+      max-width: 100%;
+      margin: 40px auto 0;
+      padding: 0 20px;
+    }
+    ul{
+      list-style: disc;
+      font-weight: 300;
+      list-style-position: inside;
+      margin-bottom: 1em;
+      ul{
+        list-style: circle;
+        list-style-position: inherit;
+        margin-left:1.5em;
+      }
+    }
+    ol{
+      font-weight: 300;
+      list-style: decimal;
+      list-style-position: inside;
+      margin-left:0;
+      padding-left: 0;
+      ol{
+        list-style: lower-roman;
+        list-style-position: inherit;
+        margin-left: 1.5em
+      }
+    }
+    .page-header {
+      margin-bottom: 40px;
+    }
+  }
+
+  select {
+    width: auto;
+    min-width: 50px;
+    appearance:  menulist;
+    margin-bottom: 10px;
+    @include media($medium-screen) {
+      padding: 10px;
+    }
+  }
+}
+.post-type-archive-espresso_events,
+.events-list {
+  .espresso_events {
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #e9e9e9;
+    &:last-child {
+      border-bottom: none;
+      //margin-bottom: 0;
+      padding-bottom: 0;
+    }
+  }
+}
+// .espresso_events, .espresso_venues {
+//   max-width: 80%;
+//   margin: 60px auto 0;
+// }
+//
+// //Might just be for single events?
+// .espresso_event_type-single-event {
+//   max-width: 80%;
+//   margin: 60px auto 0;
+// }
+
+.event-header {
+  h2 {
+    font-weight: 400;
+    a {
+      color: $red-dark;
+      &:hover {
+        color: darken($red-dark,10%);
+      }
+    }
+  }
+}
+
+.event-datetimes {
+  font-size: 16px;
+  font-family: $font-family-cond;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: $gray-dark;
+  margin-bottom: 10px;
+  li {
+    line-height: 1.5;
+  }
+}
+
+
+//Checkout/Registration Related
+#ee-single-page-checkout-dv {
+  padding-top: 20px;
+
+  input {
+    margin-bottom: 20px;
+  }
+}
+.post-type-archive-espresso_events .events-page,
+#espresso-thank-you-page-overview-dv,
+.ee-registrations-cancelled-pg {
+  margin-top: 30px !important;
+  margin-bottom: 30px !important;
+}
+
+.tiny-text {
+  font-size: 0.75em !important;
+}
+
+//This is our pile of Event Espresso default items we don't want to show.
+// Currently no setting to disable these from the plugin itself ¯\_(ツ)_/¯
+//We don't currently have a way to find Current Site on Critical Pages, so we have to
+//hide any links to the default Upcoming Events Page
+[class*="espresso_event_categories-"] .view-details-btn,
+.download-iCal-frm,
+.ee-ical-sbmt,
+a.event-cart-go-back-button.event-cart-button.button,
+a.cart-results-go-back-button.cart-results-button.button {
+    display: none !important;
+}
+
+.single .espresso-venue-dv {
+  border-bottom: 1px solid #e9e9e9;
+  padding-bottom: 40px;
+  margin-bottom: 40px;
+  h4 {
+    margin-bottom: 15px;
+    margin-top: 15px;
+  }
+}
+
+.venue-detail {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 10px;
+  h5 {
+    font-style: normal;
+    margin-right: 5px;
+    margin-bottom: 5px;
+  }
+  h5, span, div {
+    display: inline-block;
+  }
+  span, div {
+    font-weight: 300;
+  }
+  div {
+    line-height: 1.5;
+  }
+}
+
+.ee-gmap-align-center {
+    margin: 1.5em auto 1em!important;
+    @include media($medium-screen) {
+      margin: 1.5em auto 1em!important;
+    }
+
+}
+
+.ee-gmap-wrapper {
+  @include media($medium-screen) {
+    width: 100%!important;
+  }
+}

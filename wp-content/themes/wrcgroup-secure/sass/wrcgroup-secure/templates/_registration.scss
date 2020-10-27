@@ -1,0 +1,204 @@
+.registration_wrapper {
+  max-width: 1024px;
+  margin: auto;
+  display: flex;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  @include media($medium-screen) {
+    flex-direction: column;
+    max-width: none;
+    padding: 20px;
+  }
+}
+
+.registration_left_column {
+  width: 65%;
+  padding-left: 5%;
+  @include media($medium-screen) {
+    width: auto;
+    padding-left: 0;
+  }
+  h1 {
+    margin-bottom: 30px;
+  }
+}
+
+.registration_right_column {
+  width: 35%;
+  padding-left: 5%;
+  @include media($medium-screen) {
+    width: auto;
+    padding-left: 0;
+    text-align: center;
+  }
+  i {
+    padding-right: 10px;
+  }
+}
+
+.registration_form {
+  .terms-agreement {
+    margin-bottom: 5px;
+    font-style: italic;
+    font-size: 14px;
+  }
+}
+
+ul.password_requirements{
+  background: $gray-light;
+  padding: 10px 15px 13px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  .password-requirement{
+    line-height: 1.25;
+    span {
+      margin-left: 5px;
+      color: $error-color;
+      font-size: 14px;
+    }
+
+    .fa {
+      color: $error-color;
+      font-size: 14px;
+    }
+
+    &.met{
+      .fa,
+      span {
+        color: #78b743;
+        display: inline-block;
+      }
+      .fa-times-circle{
+        display: none;
+      }
+
+      .fa-check-circle{
+        display: inline-block;
+      }
+    }
+
+    .fa-check-circle{
+      display: none;
+    }
+  }
+}
+
+ul.password_limitations{
+  background: $gray-light;
+  padding: 10px 15px 13px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  #hash-limitation{
+    line-height: 1.25;
+
+    span {
+      margin-left: 5px;
+      color: #78b743;
+      font-size: 14px;
+    }
+
+    .fa {
+      color: #78b743;
+      font-size: 14px;
+    }
+
+    &.failed{
+      .fa,
+      span {
+        color: $error-color;
+        display: inline-block;
+      }
+      .fa-times-circle{
+        display: inline-block;
+      }
+
+      .fa-check-circle{
+        display: none;
+      }
+    }
+
+    .fa-times-circle{
+      display: none;
+    }
+  }
+}
+
+.input_group {
+  input {
+    display: block;
+    width: 100%;
+  }
+}
+
+.strength-meter {
+  display: inline-block;
+  width: 200px;
+  height: 10px;
+  border: 1px solid #c8c8c8;
+  margin-top: 20px;
+  margin-right: 10px;
+}
+
+span.meter-text {
+  font-size: 14px;
+}
+
+span.meter-value {
+  width: 1%;
+  background: $error-color;
+  height: 100%;
+  display: block;
+
+  &.weak-password{
+    background: $error-color;
+  }
+
+  &.good-password{
+    background: orange;
+  }
+
+  &.strong-password{
+    background: #78b743;
+  }
+}
+
+.registration_submit {
+  @extend .btn-primary;
+  margin: 30px 0;
+  display: block;
+  width: 200px;
+}
+
+.registration_self_service_links {
+  a {
+    display: block;
+    margin-bottom: 10px;
+  }
+}
+
+.registration-errorbox {
+  font-family: $font-family-slab;
+  margin-bottom: 15px;
+  color: $gray-medium;
+}
+
+//Errors
+.has-error {
+  label {
+    color: $error-color;
+  }
+  input,
+  select {
+    border: 1px solid $error-color;
+  }
+
+}
+
+//Terms and Condition
+.terms_and_conditions_container {
+  margin: 10px 0;
+  padding: 10px;
+  overflow-y: scroll;
+  border: 1px solid lighten($gray-medium, 10%);
+  max-height: 300px;
+}

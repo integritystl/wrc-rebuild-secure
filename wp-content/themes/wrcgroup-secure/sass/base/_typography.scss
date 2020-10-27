@@ -1,0 +1,97 @@
+body,
+button {
+	color: $text-color;
+	font-family: $font-family-base;
+	font-size: $font-size-base;
+	letter-spacing: .5px;
+}
+
+
+h1 {
+	font-family: $font-family-cond;
+	font-size: 55px;
+	font-weight: 300;
+	line-height: 1.1;
+	margin: 0 0 10px;
+	color: #444444;
+	@include media($medium-screen) {
+		font-size: 36px;
+	}
+}
+
+
+h2 {
+	font-size: 36px;
+	font-family: $font-family-cond;
+	line-height: 1.25;
+	font-weight: 300;
+	margin: 0 0 10px;
+	color: #444444;
+	a {
+		text-decoration: none;
+		color: #444444;
+		&:hover {
+			color: $red-dark;
+		}
+	}
+	@include media($medium-screen) {
+		font-size: 28px;
+	}
+}
+
+
+h3  {
+	font-size: 24px;
+	font-family: $font-family-cond;
+	line-height: 1.25;
+	font-weight: 400;
+	margin: 0 0 10px;
+	color: #444444;
+	@include media($medium-screen) {
+		font-size: 21px;
+	}
+}
+
+h4  {
+	font-size: 18px;
+	font-family: $font-family-base;
+	line-height: 1.25;
+	font-weight: 400;
+	font-style: italic;
+	margin: 0 0 10px;
+	color: #444444;
+}
+
+h5 {
+	font-size: 16px;
+	font-family: $font-family-base;
+	line-height: 1.25;
+	font-weight: 600;
+	margin: 0 0 10px;
+	color: #444444;
+}
+
+
+
+p {
+	line-height: 1.5;
+	margin: 0 0 15px;
+	font-weight: 300;
+	&:only-child,
+	&:last-child {
+		margin: 0px;
+	}
+	a {
+		color: $red-dark;
+	}
+	@include media($medium-screen) {
+		font-size: 16px;
+	}
+}
+
+a {
+	color: $red-dark;
+	&:hover {
+		color: darken($red-dark, 15%);
+	}
+}

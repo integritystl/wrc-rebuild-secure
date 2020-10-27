@@ -1,0 +1,42 @@
+//The Staff page needs different styling when printed with the DK PDF plugin
+// Note: the PDF view doesn't seem to accept flexbox or numbered font weights
+// also, mixed results with left/right margins :\
+.dkpdf-division-container {
+  .division-name {
+    margin: 0 10px;
+    font-size: 30px;
+  }
+}
+
+.dkpdf-division-staff-container {
+
+}
+.dkpdf-staff-member{
+  width: 44%;
+  float: left;
+  margin: 0 10px 20px 10px;
+  padding: 0 10px 0 0;
+
+  h3 {
+    margin-bottom: 0;
+    font-size: 20px;
+  }
+
+  h4 {
+    margin-bottom: 5px;
+    font-size: 14px;
+  }
+
+  .dkpdf-staff-info {
+    margin: 0;
+    padding: 0;
+
+    p {
+      margin-bottom: 0;
+      font-size: 14px;
+    }
+    span {
+      font-weight: bold;
+    }
+  }
+}
