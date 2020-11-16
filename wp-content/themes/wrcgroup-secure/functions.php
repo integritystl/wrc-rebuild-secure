@@ -364,12 +364,12 @@ add_action( 'admin_enqueue_scripts', 'wrcgroup_enqueue_admin_styles' );
 add_action( 'template_redirect', 'check_user_authentication', 1);
 add_action( 'template_redirect', 'build_user_permissions');
 add_action( 'template_redirect', 'check_last_password_reset_date');
-//Password reset flow changes
-add_action('lost_password', 'handle_password_reset_request');
-add_action('login_form_login', 'handle_login_form_redirect');
-//Handle actually trying to reset the password
-add_action( 'login_form_rp', 'redirect_to_custom_password_reset' );
-add_action( 'login_form_resetpass','redirect_to_custom_password_reset' );
+// //Password reset flow changes
+// add_action('lost_password', 'handle_password_reset_request');
+// add_action('login_form_login', 'handle_login_form_redirect');
+// //Handle actually trying to reset the password
+// add_action( 'login_form_rp', 'redirect_to_custom_password_reset' );
+// add_action( 'login_form_resetpass','redirect_to_custom_password_reset' );
 
 //WebAdmin Role remove Tools menu items capabilities to avoid Migrate DB Pro settings
 function remove_tools_web_administrator(){
@@ -539,138 +539,138 @@ function build_user_permissions($id = null) {
 	return \WRCInfrastructure\Users\UserPermissions::buildPermissionsArray($id);
 }
 
-function redirect_to_custom_password_reset() {
-  if ('GET' == $_SERVER['REQUEST_METHOD'] ) {
-    $user = check_password_reset_key( $_REQUEST['key'], $_REQUEST['login'] );
-    if ( ! $user || is_wp_error( $user ) ) {
-        $redirect_url = get_field('login_page', 'options');
-        $redirect_url = get_the_permalink($redirect_url->ID);
-        $redirect_url = add_query_arg( 'error', 'resetattempt', $redirect_url );
-        wp_redirect($redirect_url);
+// function redirect_to_custom_password_reset() {
+//   if ('GET' == $_SERVER['REQUEST_METHOD'] ) {
+//     $user = check_password_reset_key( $_REQUEST['key'], $_REQUEST['login'] );
+//     if ( ! $user || is_wp_error( $user ) ) {
+//         $redirect_url = get_field('login_page', 'options');
+//         $redirect_url = get_the_permalink($redirect_url->ID);
+//         $redirect_url = add_query_arg( 'error', 'resetattempt', $redirect_url );
+//         wp_redirect($redirect_url);
 
-        exit;
-    }
-    $redirect_url = get_field('password_reset_page', 'options');
-    $redirect_url = get_the_permalink($redirect_url->ID);
-    $redirect_url = add_query_arg( 'login', esc_attr( $_REQUEST['login'] ), $redirect_url );
-    $redirect_url = add_query_arg( 'key', esc_attr( $_REQUEST['key'] ), $redirect_url );
+//         exit;
+//     }
+//     $redirect_url = get_field('password_reset_page', 'options');
+//     $redirect_url = get_the_permalink($redirect_url->ID);
+//     $redirect_url = add_query_arg( 'login', esc_attr( $_REQUEST['login'] ), $redirect_url );
+//     $redirect_url = add_query_arg( 'key', esc_attr( $_REQUEST['key'] ), $redirect_url );
 
-    wp_redirect( $redirect_url );
-    exit;
-  }
-  if ('POST' == $_SERVER['REQUEST_METHOD']) {
-    $rp_key = $_REQUEST['rp_key'];
-    $rp_login = $_REQUEST['rp_login'];
-    $user = check_password_reset_key( $rp_key, $rp_login );
+//     wp_redirect( $redirect_url );
+//     exit;
+//   }
+//   if ('POST' == $_SERVER['REQUEST_METHOD']) {
+//     $rp_key = $_REQUEST['rp_key'];
+//     $rp_login = $_REQUEST['rp_login'];
+//     $user = check_password_reset_key( $rp_key, $rp_login );
 
-    if ( ! $user || is_wp_error( $user ) ) {
-        $redirect_url = get_field('password_reset_page', 'options');
-        $redirect_url = get_the_permalink($redirect_url->ID);
-        $redirect_url = add_query_arg( 'error', 'resetattempt', $redirect_url );
-        wp_redirect($redirect_url);
+//     if ( ! $user || is_wp_error( $user ) ) {
+//         $redirect_url = get_field('password_reset_page', 'options');
+//         $redirect_url = get_the_permalink($redirect_url->ID);
+//         $redirect_url = add_query_arg( 'error', 'resetattempt', $redirect_url );
+//         wp_redirect($redirect_url);
 
-        exit;
-    }
+//         exit;
+//     }
 
-    if ( isset( $_POST['pass1'] ) ) {
-      $redirect_url = get_field('password_reset_page', 'options');
-      $redirect_url = get_the_permalink($redirect_url->ID);
-      if ( $_POST['pass1'] != $_POST['pass2'] ) {
-          // Passwords don't match
-          $redirect_url = add_query_arg( 'key', $rp_key, $redirect_url );
-          $redirect_url = add_query_arg( 'login', $rp_login, $redirect_url );
-          $redirect_url = add_query_arg( 'error', 'password_reset_mismatch', $redirect_url );
+//     if ( isset( $_POST['pass1'] ) ) {
+//       $redirect_url = get_field('password_reset_page', 'options');
+//       $redirect_url = get_the_permalink($redirect_url->ID);
+//       if ( $_POST['pass1'] != $_POST['pass2'] ) {
+//           // Passwords don't match
+//           $redirect_url = add_query_arg( 'key', $rp_key, $redirect_url );
+//           $redirect_url = add_query_arg( 'login', $rp_login, $redirect_url );
+//           $redirect_url = add_query_arg( 'error', 'password_reset_mismatch', $redirect_url );
 
-          wp_redirect( $redirect_url );
-          exit;
-      }
+//           wp_redirect( $redirect_url );
+//           exit;
+//       }
 
-      if ( empty( $_POST['pass1'] ) ) {
-        // Password is empty
+//       if ( empty( $_POST['pass1'] ) ) {
+//         // Password is empty
 
-        $redirect_url = add_query_arg( 'key', $rp_key, $redirect_url );
-        $redirect_url = add_query_arg( 'login', $rp_login, $redirect_url );
-        $redirect_url = add_query_arg( 'error', 'password_reset_empty', $redirect_url );
+//         $redirect_url = add_query_arg( 'key', $rp_key, $redirect_url );
+//         $redirect_url = add_query_arg( 'login', $rp_login, $redirect_url );
+//         $redirect_url = add_query_arg( 'error', 'password_reset_empty', $redirect_url );
 
-        wp_redirect( $redirect_url );
-        exit;
-      }
+//         wp_redirect( $redirect_url );
+//         exit;
+//       }
 
-      if(!\WRCInfrastructure\Users\Helpers\UserValidationHelper::isPasswordValid($_POST['pass1'])){
-        $redirect_url = add_query_arg( 'key', $rp_key, $redirect_url );
-        $redirect_url = add_query_arg( 'login', $rp_login, $redirect_url );
-        $redirect_url = add_query_arg( 'error', 'password_invalid', $redirect_url );
+//       if(!\WRCInfrastructure\Users\Helpers\UserValidationHelper::isPasswordValid($_POST['pass1'])){
+//         $redirect_url = add_query_arg( 'key', $rp_key, $redirect_url );
+//         $redirect_url = add_query_arg( 'login', $rp_login, $redirect_url );
+//         $redirect_url = add_query_arg( 'error', 'password_invalid', $redirect_url );
 
-        wp_redirect( $redirect_url );
-        exit;
-      }
+//         wp_redirect( $redirect_url );
+//         exit;
+//       }
 
-      if(\WRCInfrastructure\Users\Helpers\UserValidationHelper::isCurrentPasswordReused($_POST['pass1'], $user)){
-        $redirect_url = add_query_arg( 'key', $rp_key, $redirect_url );
-        $redirect_url = add_query_arg( 'login', $rp_login, $redirect_url );
-        $redirect_url = add_query_arg( 'error', 'password_reuse', $redirect_url );
+//       if(\WRCInfrastructure\Users\Helpers\UserValidationHelper::isCurrentPasswordReused($_POST['pass1'], $user)){
+//         $redirect_url = add_query_arg( 'key', $rp_key, $redirect_url );
+//         $redirect_url = add_query_arg( 'login', $rp_login, $redirect_url );
+//         $redirect_url = add_query_arg( 'error', 'password_reuse', $redirect_url );
 
-        wp_redirect( $redirect_url );
-        exit;
-      }
+//         wp_redirect( $redirect_url );
+//         exit;
+//       }
 
-      if(\WRCInfrastructure\Users\Helpers\UserValidationHelper::isPasswordOld($_POST['pass1'], $user)){
-        $redirect_url = add_query_arg( 'key', $rp_key, $redirect_url );
-        $redirect_url = add_query_arg( 'login', $rp_login, $redirect_url );
-        $redirect_url = add_query_arg( 'error', 'password_old', $redirect_url );
+//       if(\WRCInfrastructure\Users\Helpers\UserValidationHelper::isPasswordOld($_POST['pass1'], $user)){
+//         $redirect_url = add_query_arg( 'key', $rp_key, $redirect_url );
+//         $redirect_url = add_query_arg( 'login', $rp_login, $redirect_url );
+//         $redirect_url = add_query_arg( 'error', 'password_old', $redirect_url );
 
-        wp_redirect( $redirect_url );
-        exit;
-      }
+//         wp_redirect( $redirect_url );
+//         exit;
+//       }
 
-        // Parameter checks OK, reset password
-      reset_password( $user, $_POST['pass1'] );
-      $login_url = get_field('login_page', 'options');
-      $login_url = $login_url->ID;
-      $login_url = add_query_arg( 'password', 'changed', $login_url );
-      wp_redirect( $login_url );
-    } else {
-          echo "Invalid request.";
-    }
+//         // Parameter checks OK, reset password
+//       reset_password( $user, $_POST['pass1'] );
+//       $login_url = get_field('login_page', 'options');
+//       $login_url = $login_url->ID;
+//       $login_url = add_query_arg( 'password', 'changed', $login_url );
+//       wp_redirect( $login_url );
+//     } else {
+//           echo "Invalid request.";
+//     }
 
-    exit;
-  }
-}
+//     exit;
+//   }
+// }
 
-//Handles redirecting the user when they request a password reset
-function handle_login_form_redirect() {
-  if(isset($_GET['checkemail'])) {
-    $redirect_url = get_field('login_page', 'options');
-    $redirect_url = get_the_permalink($redirect_url->ID);
-    $redirect_url = add_query_arg( 'checkemail', 'confirm', $redirect_url );
-    wp_redirect($redirect_url);
-    exit;
-  }
-}
-//Handles both outputting the reset form as well as processing it.
-function handle_password_reset_request() {
-  if( 'GET' == $_SERVER['REQUEST_METHOD'] ) {
-    if( !is_user_logged_in() ) {
-      $password_reset_page = get_field('reset_request_page', 'options');
-      wp_redirect(get_the_permalink($password_reset_page->ID));
-    }
-  }
-  else if ( 'POST' == $_SERVER['REQUEST_METHOD']) {
-    $errors = retrieve_password();
-    $redirect_url = get_field('reset_request_page', 'options');
-    $redirect_url = get_the_permalink($redirect_url->ID);
-    if( is_wp_error($errors) ) {
-      $redirect_url = add_query_arg( 'errors', join( ',', $errors->get_error_codes() ), $redirect_url );
-    }
-    else {
-      var_dump('what');
-      $redirect_url = add_query_arg( 'checkemail', 'confirm', $redirect_url );
-    }
+// //Handles redirecting the user when they request a password reset
+// function handle_login_form_redirect() {
+//   if(isset($_GET['checkemail'])) {
+//     $redirect_url = get_field('login_page', 'options');
+//     $redirect_url = get_the_permalink($redirect_url->ID);
+//     $redirect_url = add_query_arg( 'checkemail', 'confirm', $redirect_url );
+//     wp_redirect($redirect_url);
+//     exit;
+//   }
+// }
+// //Handles both outputting the reset form as well as processing it.
+// function handle_password_reset_request() {
+//   if( 'GET' == $_SERVER['REQUEST_METHOD'] ) {
+//     if( !is_user_logged_in() ) {
+//       $password_reset_page = get_field('reset_request_page', 'options');
+//       wp_redirect(get_the_permalink($password_reset_page->ID));
+//     }
+//   }
+//   else if ( 'POST' == $_SERVER['REQUEST_METHOD']) {
+//     $errors = retrieve_password();
+//     $redirect_url = get_field('reset_request_page', 'options');
+//     $redirect_url = get_the_permalink($redirect_url->ID);
+//     if( is_wp_error($errors) ) {
+//       $redirect_url = add_query_arg( 'errors', join( ',', $errors->get_error_codes() ), $redirect_url );
+//     }
+//     else {
+//       var_dump('what');
+//       $redirect_url = add_query_arg( 'checkemail', 'confirm', $redirect_url );
+//     }
 
-    wp_redirect($redirect_url);
-    exit;
-  }
-}
+//     wp_redirect($redirect_url);
+//     exit;
+//   }
+// }
 
 
 //custom styles for admin acf fields
