@@ -1665,3 +1665,10 @@ function remove_remember_me()
 {
 echo '<style type="text/css">.forgetmenot { display:none; }</style>' . "\n";
 }
+
+//Remove "All Weak" Checkbox from WordPress Rest PW Page
+add_action('login_head', 'remove_weak_option');
+function remove_weak_option()
+{
+echo '<style type="text/css">.pw-weak { display:none; }</style>' . "\n";
+}
