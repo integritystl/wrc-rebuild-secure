@@ -87,6 +87,7 @@
       display: flex;
       justify-content: center;
       margin-bottom: 20px;
+      flex-wrap: wrap;
       @media (max-width: 650px) {
         display: block;
         margin-bottom: 15px;
@@ -108,14 +109,32 @@
           margin-bottom: 5px;
           padding: 0;
         }
+        label {
+          width: 100%;
+        }
       }
       .sf-field-tag {
         padding-right: 10px;
+        &:before {
+          display: block;
+          content: "\f0d7";
+          position: absolute;
+          top: 48px;
+          right: 25px;
+          font: 18px/1 FontAwesome;
+          -webkit-font-smoothing: antialiased;
+          color: $gray-medium;
+          @media (max-width: 650px) {
+            top: 38px;
+            right: 17px;
+          }
+        }
         @media (max-width: 650px) {
           padding-right: 0;
         }
         select {
           background-color: transparent;
+          cursor: pointer;
         }
       }
       .sf-field-search {
@@ -134,11 +153,18 @@
         top: 39px;
         right: 15px;
         font: 14px/1 FontAwesome;
+        -webkit-font-smoothing: antialiased;
         color: $gray-medium;
+        @media (max-width: 650px) {
+          top: auto;
+          bottom: 4px;
+        }
         input {
           border: none;
           background: none;
-          padding: 0;
+          position: absolute;
+          right: -15px;
+          top: -8px;
         }
         &:before {
           display: block;
@@ -151,6 +177,12 @@
         //  top: 48px;
           right: 15px;
         }
+      }
+      .sf-field-reset {
+        display: none;
+        width: 100%;
+        float: left;
+        text-align: center;
       }
     }
   }
