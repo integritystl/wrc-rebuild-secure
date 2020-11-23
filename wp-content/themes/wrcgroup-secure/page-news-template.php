@@ -23,6 +23,11 @@ get_header();
   <div class="news-listing-container">
     <div class="news-wrapper-all">
       <div class="news-category-list-container">
+        <div class="news-filter-bar">
+          <div class="news-filters-container">
+            <?php echo do_shortcode('[searchandfilter slug="wrc-news"]'); ?>
+          </div>
+        </div>
         <div class="news-filter-container">
           <div class="tag-filter__container">
             <h4>Tags</h4>
