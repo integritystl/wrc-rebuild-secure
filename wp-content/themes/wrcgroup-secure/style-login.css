@@ -1,0 +1,133 @@
+/* Login-Only CSS for WP Admin */
+.login {
+  font-size: 14px;
+}
+
+.login {
+  background-color:#fff;
+  padding: 40px 0 0 0;
+}
+
+/* Login wrap */
+#login {
+  width: 400px;
+  padding: 0;
+  padding-bottom: 2%;
+  margin: 20px auto 0;
+  box-shadow: 0 1px 3px rgba(0,0,0, 0.20);
+
+}
+
+.login h1 {
+  background-color: white;
+  padding:20px 0;
+}
+
+.login h1 a {
+  background-image: url('./images/WRCgroup_logo_gray.png');
+  background-size: contain;
+  height: auto;
+  min-height: 70px;
+  max-width: 400px;
+  background-position: center;
+  width: 100%;
+  transition: opacity 0.8s ease-out;
+  margin-bottom: 0;
+}
+
+.login h1 a:hover {
+  opacity: 0.9;
+}
+
+.login form {
+  padding: 5%;
+  border: none;
+  box-shadow: none;
+}
+
+.login label {
+  color: #7a2533;
+  font-size: 16px;
+}
+
+.login 
+input[type=checkbox]:focus, 
+input[type=color]:focus, 
+input[type=date]:focus, 
+input[type=datetime-local]:focus, 
+input[type=datetime]:focus, 
+input[type=email]:focus, 
+input[type=month]:focus, 
+input[type=number]:focus, 
+input[type=password]:focus, 
+input[type=radio]:focus, 
+input[type=search]:focus, 
+input[type=tel]:focus, 
+input[type=text]:focus, 
+input[type=time]:focus, 
+input[type=url]:focus, 
+input[type=week]:focus, 
+select:focus, 
+textarea:focus{
+  border-color: #7a2533;
+  box-shadow: 0 0 0 1px #7a2533;
+}
+
+.login #backtoblog,
+.login #nav {
+  font-size: 14px;
+  padding: 0 5%;
+}
+
+.login #backtoblog a, .login #nav a {
+  color: #7a2533;
+}
+.login #backtoblog a:hover, .login #nav a:hover {
+  color:#7a2533;
+  opacity: .75;
+}
+
+.login .wp-core-ui .button, .wp-core-ui .button-secondary{
+  color: #7a2533;
+}
+
+.login .button-primary {
+  text-shadow: none;
+  background: #7a2533;
+  border: 2px solid #7a2533;
+  border-radius: 0;
+  color: #fff;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease-out;
+}
+
+.login .button-primary:hover,
+.login .button-primary:focus,
+.login .button-primary:active {
+  background-color: #fff;
+  border-color:#7a2533;
+  color: #7a2533;
+}
+
+.login #login_error,
+.login .message {
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 5%;
+  border-color: #7a2533;
+  background:#94949245;
+}
+
+/* Styles for Login on Mobile */
+.mobile.login {
+  min-height: 100%;
+  padding: 40px 0;
+}
+.mobile #login {
+  padding: 10px;
+  width: 320px;
+}
+
+.mobile.login h1 a {
+  width: 320px;
+}
