@@ -27,6 +27,7 @@ class DocumentCPT
         ),
         'exclude_from_search' => false,
         'publicly_queryable' => false,
+        'public' => true,
         'show_ui' => true,
         'show_in_nav_menus' => false,
         'show_in_menu' => true,

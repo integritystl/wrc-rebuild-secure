@@ -250,6 +250,13 @@ function wrcgroup_secure_widgets_init() {
 }
 add_action( 'widgets_init', 'wrcgroup_secure_widgets_init' );
 
+// Enqueue login styles
+function my_custom_login()
+{
+echo '<link rel="stylesheet" type="text/css" href="' . get_bloginfo('stylesheet_directory') . '/style-login.css" />';
+}
+add_action('login_head', 'my_custom_login');
+
 /**
  * Enqueue scripts and styles.
  */
@@ -1636,3 +1643,12 @@ function v_forcelogin() {
   }
 }
 add_action('init', 'v_forcelogin');
+
+function disable_autofill_password($safe_text, $text) {
+    if($safe_text === 'user_pass') {
+        $safe_text .= '" autocomplete="new-password';
+    }
+    return $safe_text;
+}
+add_filter('attribute_escape', 'disable_autofill_password', 10, 2);
+
