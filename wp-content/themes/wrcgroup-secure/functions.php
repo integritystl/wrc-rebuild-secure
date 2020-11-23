@@ -1644,6 +1644,8 @@ function v_forcelogin() {
 }
 add_action('init', 'v_forcelogin');
 
+// NEW LOGIN STUFFS
+
 function disable_autofill_password($safe_text, $text) {
     if($safe_text === 'user_pass') {
         $safe_text .= '" autocomplete="new-password';
@@ -1652,3 +1654,14 @@ function disable_autofill_password($safe_text, $text) {
 }
 add_filter('attribute_escape', 'disable_autofill_password', 10, 2);
 
+add_filter( 'login_headerurl', 'my_custom_login_url' );
+function my_custom_login_url($url) {
+    return 'https://www.thewrcgroup.com/';
+}
+
+//Remove "Remember Me" Checkbox from WordPress Login Page
+add_action('login_head', 'remove_remember_me');
+function remove_remember_me()
+{
+echo '<style type="text/css">.forgetmenot { display:none; }</style>' . "\n";
+}

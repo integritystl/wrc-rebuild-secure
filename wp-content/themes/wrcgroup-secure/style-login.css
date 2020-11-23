@@ -1,11 +1,12 @@
 /* Login-Only CSS for WP Admin */
 .login {
   font-size: 14px;
+  padding:0 20px;
 }
 
 .login {
   background-color: #7a2533;
-  padding: 40px 0 0 0;
+  display: flex;
 }
 
 /* Login wrap */
@@ -14,7 +15,6 @@
   width: 400px;
   padding: 0;
   padding-bottom: 2%;
-  margin: 20px auto 0;
   box-shadow: 0 1px 3px rgba(0,0,0, 0.20);
 
 }
@@ -119,16 +119,7 @@ textarea:focus{
   background:#94949245;
 }
 
-/* Styles for Login on Mobile */
-.mobile.login {
-  min-height: 100%;
-  padding: 40px 0;
-}
-.mobile #login {
-  padding: 10px;
-  width: 320px;
+.login p#backtoblog a {
+    display: none;
 }
 
-.mobile.login h1 a {
-  width: 320px;
-}
