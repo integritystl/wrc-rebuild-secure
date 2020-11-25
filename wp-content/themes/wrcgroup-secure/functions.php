@@ -290,10 +290,10 @@ function wrcgroup_secure_scripts() {
 		wp_enqueue_script( 'react-document-table', get_template_directory_uri() . '/js/react_document_table/dist/react_document_table.js', array(), '1.2', true);
   }
 
-  if(is_page_template('page-registration.php') || is_page_template('page-my-account.php') || is_page_template('page-password-reset-form.php')) {
-    wp_enqueue_script( 'registration', get_template_directory_uri() . '/js/registration.js', ('jquery'),array(), '1.1', true);
-    wp_enqueue_script( 'input-mask', get_template_directory_uri() . '/js/jquery.maskedinput.min.js', ('jquery'),array(), '1.1', true);
-	}
+ //  if(is_page_template('page-registration.php') || is_page_template('page-my-account.php') || is_page_template('page-password-reset-form.php')) {
+ //    wp_enqueue_script( 'registration', get_template_directory_uri() . '/js/registration.js', ('jquery'),array(), '1.1', true);
+ //    wp_enqueue_script( 'input-mask', get_template_directory_uri() . '/js/jquery.maskedinput.min.js', ('jquery'),array(), '1.1', true);
+	// }
 
 	if(is_page_template('page-news-template.php')){
 		wp_enqueue_script( 'news-archive', get_template_directory_uri() . '/js/ajax-news-load.js', ('jquery'), '1.1');
@@ -370,7 +370,7 @@ add_action( 'admin_enqueue_scripts', 'wrcgroup_enqueue_admin_styles' );
 **/
 add_action( 'template_redirect', 'check_user_authentication', 1);
 add_action( 'template_redirect', 'build_user_permissions');
-add_action( 'template_redirect', 'check_last_password_reset_date');
+// add_action( 'template_redirect', 'check_last_password_reset_date');
 // //Password reset flow changes
 // add_action('lost_password', 'handle_password_reset_request');
 // add_action('login_form_login', 'handle_login_form_redirect');
@@ -538,9 +538,9 @@ function check_user_authentication() {
   \WRCInfrastructure\Users\UserLogin::checkAuthentication();
 }
 
-function check_last_password_reset_date() {
-  \WRCInfrastructure\Users\UserAccount::checkLastPasswordResetDate();
-}
+// function check_last_password_reset_date() {
+//   \WRCInfrastructure\Users\UserAccount::checkLastPasswordResetDate();
+// }
 
 function build_user_permissions($id = null) {
 	return \WRCInfrastructure\Users\UserPermissions::buildPermissionsArray($id);
@@ -693,22 +693,22 @@ function prepare_login_attempt_count($field){
     return $field;
 }
 
-add_action('acf/update_value/name=login_attempt_count', 'send_login_attempt_count_reset_message', 10, 3);
-function send_login_attempt_count_reset_message($value, $post_id, $field){
-  $login_page = get_field('login_page', 'option');
-  $login_max_attempts = get_field('login_attempt_max', 'option');
-  $old_attempt_count = get_field('login_attempt_count', $post_id);
+// add_action('acf/update_value/name=login_attempt_count', 'send_login_attempt_count_reset_message', 10, 3);
+// function send_login_attempt_count_reset_message($value, $post_id, $field){
+//   $login_page = get_field('login_page', 'option');
+//   $login_max_attempts = get_field('login_attempt_max', 'option');
+//   $old_attempt_count = get_field('login_attempt_count', $post_id);
 
-  //this is always available on the user edit screen
-  global $user_id;
-  $user = get_user_by('id', $user_id);
+//   //this is always available on the user edit screen
+//   global $user_id;
+//   $user = get_user_by('id', $user_id);
 
-  if(intval($value) < intval($login_max_attempts) && intval($old_attempt_count) >= intval($login_max_attempts)){
-    \WRCInfrastructure\Users\UserLogin::sendLoginAttemptCountResetMessage($user);
-  }
+//   if(intval($value) < intval($login_max_attempts) && intval($old_attempt_count) >= intval($login_max_attempts)){
+//     \WRCInfrastructure\Users\UserLogin::sendLoginAttemptCountResetMessage($user);
+//   }
 
-  return $value;
-}
+//   return $value;
+// }
 
 //Wipe the transient whenever the user profile is updated
 add_action( 'profile_update', 'wipe_permissions_transient');
@@ -720,10 +720,10 @@ function wipe_permissions_transient($user_id) {
 //If so, we need to clear out the last update and jam the password into old passwords
 //array and such. This allows an admin to reset a password for someone if they
 //for some reason don't understand how to do it themselves.
-add_action( 'profile_update', 'check_password_update', 10, 2);
-function check_password_update($user_id, $old_user_data) {
-  return \WRCInfrastructure\Users\UserAccount::profile_update_check($user_id, $old_user_data);
-}
+// add_action( 'profile_update', 'check_password_update', 10, 2);
+// function check_password_update($user_id, $old_user_data) {
+//   return \WRCInfrastructure\Users\UserAccount::profile_update_check($user_id, $old_user_data);
+// }
 
 /**
 * Get Site Functionality
