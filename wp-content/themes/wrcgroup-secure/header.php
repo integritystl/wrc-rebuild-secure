@@ -308,7 +308,7 @@
   * Output the site menu just below the header menu.
   **/
   ?>
-  <?php if( !(is_page_template('page-events.php') || is_post_type_archive('espresso_events') ) ) { ?>
+  <?php if( !(is_page_template('page-events.php') || is_post_type_archive('espresso_events') || is_page_template('page-dashboard.php') ) ) { ?>
   	<div class="site-top-menu-container">
         <div class="site-top-menu-site-name">
           <a href="<?php echo $site_landing_page; ?>">
