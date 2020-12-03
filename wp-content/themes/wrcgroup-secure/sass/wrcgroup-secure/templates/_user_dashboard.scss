@@ -1,0 +1,17 @@
+.user-dashboard{
+	padding:50px 60px 60px;
+	.com-row{
+		display: flex;
+		.com-col{
+			margin: 10px;
+			padding:15px 20px;
+			border:1px solid;
+			&.dash-nav{
+				img{
+					max-width: 80px;
+				}
+			}
+		}
+	}
+
+}
