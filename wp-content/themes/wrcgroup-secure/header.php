@@ -186,8 +186,8 @@
   if(isset($current_site)){
     $site_menu = get_field('top_menu', $current_site->ID);
     $site_landing_page = get_field('landing_page', $current_site->ID);
-    $site_logo = get_field('site_logo', $current_site->ID);
-    $site_logo = $site_logo['sizes']['large'];
+    $image = get_field('site_logo', $current_site->ID);
+    $imageURL = $image['url'];
     $help_page = get_field('help_page', $current_site->ID);
   }
   else if ( is_page_template('page-events.php') || is_post_type_archive('espresso_events')) {
@@ -200,8 +200,8 @@
     $current_site = $permissions['sites'][0];
     $site_menu = get_field('top_menu', $current_site->ID);
     $site_landing_page = get_field('landing_page', $current_site->ID);
-    $site_logo = get_field('site_logo', $current_site->ID);
-    $site_logo = $site_logo['sizes']['large'];
+    $image = get_field('site_logo', $current_site->ID);
+    $imageURL = $image['url'];
     $help_page = get_field('help_page', $current_site->ID);
   }
 
@@ -312,7 +312,7 @@
   	<div class="site-top-menu-container">
         <div class="site-top-menu-site-name">
           <a href="<?php echo $site_landing_page; ?>">
-            <img src="<?php echo $site_logo; ?>"/>
+            <img src="<?php echo $imageURL; ?>"/>
           </a>
         </div>
         <div class="site-top-menu">
